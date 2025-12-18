@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MoonStar Hub</title>
+  <style>
+    body { margin: 0; padding: 0; background: #000; color: #ddd; font-family: Arial, sans-serif; display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
+    header { text-align: center; padding: 20px; background: linear-gradient(to bottom, #4b0082, #000); }
+    .logo { width: 90%; max-width: 400px; border-radius: 15px; box-shadow: 0 0 30px rgba(138, 43, 226, 0.9); }
+    h1 { font-size: 40px; text-shadow: 0 0 15px #8a2be2; margin: 15px 0; }
+    .buttons { display: flex; flex-direction: column; align-items: center; gap: 30px; padding: 20px; background: #111; }
+    button { width: 85%; max-width: 450px; padding: 25px; font-size: 32px; font-weight: bold; border: none; border-radius: 25px; cursor: pointer; box-shadow: 0 0 25px rgba(138, 43, 226, 0.7); transition: 0.3s; }
+    button:hover, button:active { transform: scale(1.05); box-shadow: 0 0 40px rgba(138, 43, 226, 1); }
+    #tiktok-btn { background: linear-gradient(135deg, #ee1d52, #8a2be2); color: white; }
+    #youtube-btn { background: linear-gradient(135deg, #ff0000, #8a2be2); color: white; }
+    iframe { flex: 1; border: none; width: 100%; background: #000; }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="IMG_3403.jpeg" alt="MoonStar Logo" class="logo">
+    <h1>MoonStar Hub</h1>
+  </header>
+  
+  <div class="buttons">
+    <button id="tiktok-btn">TikTok</button>
+    <button id="youtube-btn">YouTube</button>
+  </div>
+  
+  <iframe id="content-frame" src="about:blank" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-modals"></iframe>
+
+  <script>
+    const frame = document.getElementById('content-frame');
+    
+    const tiktokProxies = [
+      "https://croxyproxy.com/_/https://www.tiktok.com",
+      "https://proxysite.com/browse.php?u=https://www.tiktok.com",
+      "https://blockaway.net/?url=https://www.tiktok.com",
+      "https://unblocked.to/embed/https://www.tiktok.com"
+    ];
+    
+    const youtubeProxies = [
+      "https://croxyproxy.com/_/https://www.youtube.com",
+      "https://proxysite.com/browse.php?u=https://www.youtube.com",
+      "https://blockaway.net/?url=https://www.youtube.com",
+      "https://unblocked.to/embed/https://www.youtube.com"
+    ];
+    
+    let tikTokIndex = 0;
+    let youTubeIndex = 0;
+    
+    document.getElementById('tiktok-btn').onclick = () => {
+      frame.src = tiktokProxies[tikTokIndex];
+      tikTokIndex = (tikTokIndex + 1) % tiktokProxies.length;
+    };
+    
+    document.getElementById('youtube-btn').onclick = () => {
+      frame.src = youtubeProxies[youTubeIndex];
+      youTubeIndex = (youTubeIndex + 1) % youtubeProxies.length;
+    };
+  </script>
+</body>
+</html>
